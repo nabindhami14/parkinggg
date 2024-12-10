@@ -1,0 +1,287 @@
+{
+	"info": {
+		"_postman_id": "d2deaa5a-9eeb-43f1-8058-92ab8742807e",
+		"name": "parking_ui",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "36556988"
+	},
+	"item": [
+		{
+			"name": "users",
+			"item": [
+				{
+					"name": "register",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"{{$randomFullName}}\",\r\n    \"email\": \"{{$randomEmail}}\",\r\n    \"password\": \"password\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}auth/register",
+							"host": [
+								"{{host}}auth"
+							],
+							"path": [
+								"register"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "login",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\": \"Lesly73@hotmail.com\",\r\n    \"password\": \"password\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}auth/login",
+							"host": [
+								"{{host}}auth"
+							],
+							"path": [
+								"login"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "auth",
+			"item": []
+		},
+		{
+			"name": "spots",
+			"item": [
+				{
+					"name": "create",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NjgxZmVmOGQyNGM0YWNjYjY3NWZjODEiLCJyb2xlcyI6WyJvd25lciJdLCJpYXQiOjE3MTk3OTY5NDEsImV4cCI6MTcxOTgwMDU0MX0.8Wk-6ZCRzgHvNYGBhps8Zb4G9neMjohZkP7sWUMs0eU",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"{{$randomCompanyName}}\",\r\n    \"description\": \"{{$randomLoremSentence}}\",\r\n    \"spotType\": \"Indoor\", // default Open\r\n    \"pricePerHour\": {\r\n        \"car\": \"{{$randomPrice}}\",\r\n        \"bike\": \"{{$randomPrice}}\"\r\n    },\r\n    \"capacity\": {\r\n        \"car\": \"{{$randomInt}}\",\r\n        \"bike\": \"{{$randomInt}}\"\r\n    },\r\n    \"location\": {\r\n        \"type\": \"Point\",\r\n        \"coordinates\": [\r\n            27.700769,\r\n            85.300140\r\n        ],\r\n        \"city\": \"Lalitpur\",\r\n        \"address\": \"Balkumari\"\r\n    },\r\n    \"features\": [\r\n        \"24/7 access\",\r\n        \"Covered area\",\r\n        \"EV charging\"\r\n    ],\r\n    \"imageUrls\": [\r\n        \"https://images.pexels.com/photos/395537/pexels-photo-395537.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1\",\r\n        \"https://images.pexels.com/photos/2417466/pexels-photo-2417466.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1\"\r\n    ]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}spots",
+							"host": [
+								"{{host}}spots"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "spots",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NjgxZmVmOGQyNGM0YWNjYjY3NWZjODEiLCJyb2xlcyI6WyJvd25lciJdLCJpYXQiOjE3MTk3OTY5NDEsImV4cCI6MTcxOTgwMDU0MX0.8Wk-6ZCRzgHvNYGBhps8Zb4G9neMjohZkP7sWUMs0eU",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{host}}spots",
+							"host": [
+								"{{host}}spots"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "parkings",
+			"item": []
+		},
+		{
+			"name": "reservations",
+			"item": []
+		},
+		{
+			"name": "ratings",
+			"item": [
+				{
+					"name": "create",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NjgxZmVmOGQyNGM0YWNjYjY3NWZjODEiLCJyb2xlcyI6WyJvd25lciJdLCJpYXQiOjE3MTk3OTY5NDEsImV4cCI6MTcxOTgwMDU0MX0.8Wk-6ZCRzgHvNYGBhps8Zb4G9neMjohZkP7sWUMs0eU",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"rating\": 4\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}spots/668205fb930b526195c45e9e/ratings",
+							"host": [
+								"{{host}}spots"
+							],
+							"path": [
+								"668205fb930b526195c45e9e",
+								"ratings"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "spot-ratings",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NjgxZmVmOGQyNGM0YWNjYjY3NWZjODEiLCJyb2xlcyI6WyJvd25lciJdLCJpYXQiOjE3MTk3OTY5NDEsImV4cCI6MTcxOTgwMDU0MX0.8Wk-6ZCRzgHvNYGBhps8Zb4G9neMjohZkP7sWUMs0eU",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{host}}spots/668205fb930b526195c45e9e/ratings",
+							"host": [
+								"{{host}}spots"
+							],
+							"path": [
+								"668205fb930b526195c45e9e",
+								"ratings"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "feedbacks",
+			"item": [
+				{
+					"name": "create",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NjgxZmVmOGQyNGM0YWNjYjY3NWZjODEiLCJyb2xlcyI6WyJvd25lciJdLCJpYXQiOjE3MTk3OTY5NDEsImV4cCI6MTcxOTgwMDU0MX0.8Wk-6ZCRzgHvNYGBhps8Zb4G9neMjohZkP7sWUMs0eU",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"message\": \"Very good service!\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}spots/668205fb930b526195c45e9e/feedbacks",
+							"host": [
+								"{{host}}spots"
+							],
+							"path": [
+								"668205fb930b526195c45e9e",
+								"feedbacks"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "spot-feedbacks",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NjgxZmVmOGQyNGM0YWNjYjY3NWZjODEiLCJyb2xlcyI6WyJvd25lciJdLCJpYXQiOjE3MTk3OTY5NDEsImV4cCI6MTcxOTgwMDU0MX0.8Wk-6ZCRzgHvNYGBhps8Zb4G9neMjohZkP7sWUMs0eU",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{host}}spots/668205fb930b526195c45e9e/feedbacks",
+							"host": [
+								"{{host}}spots"
+							],
+							"path": [
+								"668205fb930b526195c45e9e",
+								"feedbacks"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"variable": [
+		{
+			"key": "host",
+			"value": "http://localhost:4000/"
+		}
+	]
+}
